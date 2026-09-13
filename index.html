@@ -1,0 +1,1901 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DesignsBridge</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+	body {
+			margin:0px;
+		    overflow-x: hidden;
+		}
+.container {
+	width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+	}
+	#header {
+		margin: 0px;
+		width: 100%;
+		position: fixed;
+		z-index: 99;
+		background-color:#ffffff;
+		height:auto;
+		
+	}
+	ul {
+			list-style-type:none;
+			overflow:hidden;
+			padding:0px;
+			margin:0px;
+			font-size:14px;
+			font-weight:600;
+		    padding-left:80px;
+		   background-color:#ffffff;
+		   display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+		}
+		li {
+			float:left;
+		}
+		li a {
+			color:#0a0a23;
+			display:block;
+			padding:30px 20px;
+			text-decoration: none;
+		}
+		
+		li a:hover {
+			background-color:#fdc236;
+			color:#ffffff;
+         
+		}
+	#hero-section {
+     position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 650px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+	}
+	.hero-sliders {
+    width: 100%;
+    height: 650px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .mySlides {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+    display: none;
+  }
+
+.hero-sliders::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.40);
+    z-index: 2;
+	}
+
+  .contact-form {
+    position: absolute;
+	  z-index: 10;
+	  margin-top:100px;
+	  right: 50px;
+	  width:350px;
+	  padding: 40px;
+	  border:1px solid #ffffff;
+ }
+
+ .contact-form h1 {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    white-space: nowrap;
+    margin: 0 0 25px 0;
+	 
+ }
+.contact-form input,
+.contact-form textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background: #ffffff;
+    border: none;
+    outline: none;
+    padding: 20px 18px;
+    margin-bottom: 14px;
+    font-size:15px;
+    font-family: Arial, sans-serif;
+}
+
+.contact-form input {
+    width:260px;
+    height: 50px;
+}
+.contact-form textarea {
+	width:260px;
+    height: 140px;
+    resize: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #999999;
+}
+
+.contact-form button {
+    display: block;
+    width:260px;
+    height: 40px;
+    background: #fdc236;
+    color: #ffffff;
+    border: none;
+    font-size:18px;
+	border:1px solid #ffffff;
+	font-weight:bold;
+	
+}
+
+.contact-form button:hover {
+    background: #ffffff;
+	color:#0a0a23;
+}
+.hero-text {
+    position:absolute;
+    z-index: 5;
+    top: 230px;
+    left: 10%;
+    width: 55%;
+}
+
+.hero-text h1 {
+    color: #ffffff;
+    font-size:50px;
+    font-weight: 800;
+    margin: 0 0 15px 0;
+    transform: translateY(-100px);
+    opacity: 0;
+}
+
+.hero-text p {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0 0 25px 0;
+    max-width: 800px;
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.hero-button {
+    background-color: #fdc236;
+    color: #000000;
+    border: none;
+    padding: 20px 50px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transform: translateX(-100px);
+    opacity: 0;
+}
+
+.hero-text h1.animate {
+    animation: headingIn 1s ease forwards;
+    animation-delay: 0s;
+}
+
+.hero-text p.animate {
+    animation: paragraphIn 1s ease forwards;
+    animation-delay: 0.8s;
+}
+
+.hero-text .hero-button.animate {
+    animation: buttonIn 1s ease forwards;
+    animation-delay: 1.6s;
+}
+
+@keyframes headingIn {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes paragraphIn {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes buttonIn {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+	#quote {
+		background-color:#fdc236;
+		margin:auto;
+		width:100%;
+		max-width:100%;
+		position: relative;
+		height:80px;	
+	}
+	.left-text {
+		font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+		padding-top: 30px;
+		padding-left:60px;
+	}
+	.right-button a {
+	display: block;
+    width:200px;
+    background-color:#EAE9E9;
+    font-size:22px;
+	text-decoration: none;
+	color: #000000;
+	margin-top:25px;
+	text-align:center;
+	padding-top:2px;
+	font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+	}
+	.right-button:hover a {
+		background-color:#000000;
+		color:#EAE9E9;
+	}
+	#about {
+		background-color:#ffffff;
+		margin:auto;
+		width:100%;
+		max-width:100%;
+		position: relative;
+		height:auto;
+		margin-top:60px;
+	}
+	.about-img {
+		margin-left:20px;
+		width:550px;
+		}
+	.about-content {
+		padding-left:40px;
+	}
+
+	.about-heading {
+		font-family:Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+		font-weight: bold;
+	}
+	.hr-line {
+		width:160px;
+	}
+	.circle-icon {
+		margin-top:20px;
+	}
+	.circle-1 {
+	width:90px;
+    height:90px;
+    background: #fdc236;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+	}
+	
+	.circle-1:hover {
+		box-shadow: 0 0 0 4px white,
+                0 0 0 7px #ffbd32;
+	}
+	.circle-1 img {
+	width: 50px;
+    height: auto;
+	}
+	#service {
+		background-image: url("BD service-bg.jpg");
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		margin:auto;
+		width:auto;
+		max-width:100%;
+		position: relative;
+		height:700px;
+		margin-top:60px;
+	}
+	.service-heading {
+		font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+		text-align: center;
+		color:#ffffff;
+		font-weight: bolder;
+		padding-top:80px;
+	}
+.service-carousel {
+  overflow: hidden;
+  margin: 90px 55px 70px;
+  padding: 0;
+}
+
+.service-track {
+  display: flex;
+  flex-wrap: nowrap !important;
+  width: 100%;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  transition: transform 4s ease;
+}
+
+.service-slide {
+  flex: 0 0 33.333333% !important;
+  width: 33.333333% !important;
+  max-width: 33.333333% !important;
+  box-sizing: border-box;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+.service-card {
+  overflow: hidden;
+  background: #ffffff;
+  text-align: center;
+}
+
+.service-image {
+  position: relative;
+  height: 205px;
+  overflow: hidden;
+  background: #111111;
+}
+
+.service-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.service-image::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 225, 150, 0.38) 0%,
+    rgba(242, 180, 42, 0.68) 50%,
+    rgba(215, 142, 0, 0.95) 100%
+  );
+
+  transform: translateY(-100%);
+  transition: transform 0.45s ease;
+}
+
+.image-link {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 70px;
+  height: 70px;
+  place-items: center;
+  border-radius: 50%;
+  color: #050505;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 26px;
+  text-decoration: none;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.7);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.service-card:hover .service-image::before {
+  transform: translateY(0);
+}
+
+.service-card:hover .service-image img {
+  transform: scale(1.06);
+}
+
+.service-card:hover .image-link {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.service-info {
+  min-height: 215px;
+  padding: 25px 20px 28px;
+}
+
+.service-info h3 {
+  margin: 0 0 10px;
+  color: #050505;
+  font-family: "Oswald", sans-serif;
+  font-size: 27px;
+  font-weight: 600;
+}
+
+.service-info p {
+  margin: 0 auto 18px;
+  color: #333333;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.read-more {
+  display: inline-block;
+  padding: 13px 30px;
+  color: #ffffff;
+  background: #ffc238;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  background: #df9900;
+}
+	
+
+#project {
+		margin:auto;
+		width:100%;
+		max-width:100%;
+		position: relative;
+		height:680px;
+		margin-top:60px;
+	}
+	.project-heading {
+		font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+		text-align: center;
+		color:#0a0a23;
+		font-weight: bolder;
+	}
+	.project-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 224, 145, 0.30) 0%,
+    rgba(242, 180, 42, 0.62) 50%,
+    rgba(215, 142, 0, 0.95) 100%
+  );
+
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.project-text {
+  color: #ffffff;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s;
+}
+
+.project-text h3 {
+  margin: 0 0 8px;
+  font-family: "Oswald", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.project-text p {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+.project-card:hover img {
+  transform: scale(1.08);
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card:hover .project-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+	.project-img {
+		margin-top:20px;
+	}
+	.project-img1 {
+		margin-left:20px;
+	}
+	.project-img2 {
+		margin-left:10px;
+	}
+	.project-img3 {
+		margin-left:5px;
+	}
+	.project-img4 {
+		margin-left:5px;
+	}
+	#testimonials {
+		background-image: url("DB testimonial-bg.jpg");
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		margin:auto;
+		width:100%;
+		max-width:100%;
+		position: relative;
+		height:600px;
+		margin-top:60px;
+	}
+	.testimonial-heading {
+		font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+		text-align: center;
+		color:#ffffff;
+		font-weight: bolder;
+		margin-top:80px;
+	}
+	.testimonial-card1 {
+		margin-left:35px;
+	}
+	.testimonial-card2 {
+		margin-left:20px;
+	}
+	.testimonial-message {
+  position: relative;
+  min-height:100px;
+  padding: 48px 35px 35px 55px;
+  background: #ffffff;
+	margin-top:30px;
+	width:320px;
+}
+
+.testimonial-message::after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 100px;
+  border-top: 30px solid #ffffff;
+  border-right: 30px solid transparent;
+}
+
+.testimonial-message p {
+  margin:0px;
+  color: #777777;
+  font-size:13px;
+  font-style:italic;
+  line-height: 1.8;
+}
+
+.quote-icon {
+  position: absolute;
+  top:18px;
+  left: 30px;
+  color: #ffe09a;
+  font-size:38px;
+}
+
+.testimonial-person {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top:40px;
+}
+
+.testimonial-person img {
+  width:80px;
+  height:80px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left:50px;
+}
+
+.testimonial-person h3 {
+  margin: 0 0 5px;
+  color: #ffffff;
+  font-family: "Oswald", sans-serif;
+  font-size:20px;
+  font-weight: 600;
+  padding-top:20px;
+  
+}
+
+.testimonial-person p {
+  margin: 0;
+  color: #ffffff;
+  font-size:15px;
+}
+
+	#experts {
+		margin:auto;
+		width:100%;
+		max-width:100%;
+		position: relative;
+		height:680px;
+		margin-top:60px;
+	}
+	.expert-heading {
+		font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+		text-align: center;
+		color:#0a0a23;
+		font-weight: bolder;
+	}
+	.expert-paragraph {
+		text-align: center;
+		color:#333;
+		font-size: 14px;
+      line-height: 24px;
+	}
+	.team-card {
+  overflow: hidden;
+  background: #ffc238;
+  text-align: center;
+}
+
+.team-info {
+  height: 105px;
+  padding: 24px 10px 10px;
+  background: #ffc238;
+}
+
+.team-info h3 {
+  margin: 0 0 6px;
+  color: #111111;
+  font-family: "Oswald", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.team-info p {
+  margin: 0;
+  color: #222222;
+  font-size: 20px;
+}
+
+.team-photo {
+  height: 383px;
+  overflow: hidden;
+  transition: height 0.45s ease;
+}
+
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.team-social {
+  display: flex;
+  height:0px;
+  align-items: center;
+  justify-content: center;
+  gap:8px;
+  overflow: hidden;
+  background: #ffc238;
+  opacity: 0;
+  transition: height 0.45s ease, opacity 0.3s ease;
+}
+
+.team-social a {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  font-size: 16px;
+  place-items: center;
+  color: #142033;
+  background: #ffffff;
+  text-decoration: none;
+}
+
+.team-social a:hover {
+  color: #ffffff;
+  background: #111111;
+}
+
+.team-card:hover .team-photo {
+  height: 303px;
+}
+
+.team-card:hover .team-social {
+ height: 60px;
+  opacity: 1;
+}
+#contact {
+	    background-image: url("DB call-bg.jpg");
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		margin:auto;
+		width:100%;
+		max-width:100%;
+		position: relative;
+		height:630px;
+		margin-top:60px;
+	}
+	.contact-heading {
+		font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+		text-align: center;
+		color:#ffffff;
+		font-weight: bolder;
+		padding-top: 50px;
+	}
+	.contact-content {
+		margin-left:50px;
+		
+	}
+	.contact-content h3 {
+		font-style:normal;
+		color:#ffffff;
+		font-weight: bolder;
+		margin-top:40px;
+	}
+	.contact-content p {
+		font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+		color:#F2F2F2;
+		padding-top:10px;
+	}
+	.contact-form-right {
+  padding: 45px 0 40px;
+}
+
+.form-row {
+  display: flex;
+  gap: 35px;
+  margin-bottom: 39px;
+}
+
+.form-row input {
+  width:220px;
+  height:40px;
+  padding: 0 18px;
+  border: none;
+  outline: none;
+  background: #ffffff;
+  color: #222222;
+  font-size: 15px;
+}
+
+.contact-form-right textarea {
+  display: block;
+  width:480px;
+  height: 125px;
+  margin-bottom: 38px;
+  padding: 15px 18px;
+  border: none;
+  outline: none;
+  resize: vertical;
+  background: #ffffff;
+  color: #222222;
+  font-size: 20px;
+}
+
+.contact-form-right input::placeholder,
+.contact-form-right textarea::placeholder {
+  color: #999999;
+}
+
+.contact-form-right button {
+  width:280px;
+  height: 60px;
+  border: 1px solid #ffffff;
+  background: #ffc238;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.contact-form-right button:hover {
+  background: #ffffff;
+  color: #111111;
+}
+
+@media (max-width: 991px) {
+  .contact-form-right {
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .form-row {
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .form-row input {
+    width: 100%;
+  }
+
+  .contact-form-right button {
+    width: 100%;
+  }
+}
+	#footer {
+		margin:auto;
+		width:100%;
+		max-width:100%;
+		position: relative;
+		height:53px;
+		margin-top:20px;
+	}
+	.footer-content p {
+		padding-top:5px;
+	}
+.footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.footer-social a {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid #1d9de0;
+  color: #168fd0;
+  background: #ffffff;
+  font-size:17px;
+  text-decoration: none;
+}
+
+.footer-social .facebook {
+  color:#4267a9;
+  background-color: #ffffff;
+ border-color:#4267a9;
+}
+
+.footer-social .youtube {
+  border-color: #f04b47;
+  color: #ed352f;
+}
+
+.footer-social .google {
+  border-color: #ef5652;
+  color: #e6433e;
+}
+
+.footer-social .back-to-top {
+margin-top:10px;
+  width: 33px;
+  height: 33px;
+  margin-left: -5px;
+  border: none;
+  color: #ffffff;
+  background: #ffc238;
+  font-size: 20px;
+}
+
+.footer-social .facebook:hover {
+  background: #4267b2;
+  color: #ffffff;
+}
+
+.footer-social .twitter:hover {
+  background: #1da1f2;
+  color: #ffffff;
+}
+
+.footer-social .youtube:hover {
+  background: #ff0000;
+  color: #ffffff;
+}
+
+.footer-social .linkedin:hover {
+  background: #0077b5;
+  color: #ffffff;
+}
+
+.footer-social .google:hover {
+  background: #db4437;
+  color: #ffffff;
+}
+
+#header {
+  position: fixed;
+}
+@media (max-width: 767px) {
+
+  .container {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+ 
+  #header {
+    position: relative !important;
+  }
+
+  #header .row {
+    text-align: center;
+  }
+
+  #header .col-lg-3,
+  #header .col-9 {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  #header img {
+    width: 190px !important;
+    height: auto;
+  }
+
+  #header ul {
+    justify-content: center;
+    padding-left: 0;
+    font-size: 11px;
+  }
+
+  #header li a {
+    padding: 10px 7px;
+  }
+
+  #hero-section,
+  .hero-sliders,
+  .mySlides {
+    height: 850px;
+  }
+
+  .hero-text {
+    top: 80px;
+    left: 20px;
+    width: calc(100% - 40px);
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 36px;
+  }
+
+  .hero-text p {
+    font-size: 17px;
+  }
+
+  .hero-button {
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+
+  .contact-form {
+    top: 400px;
+    right: auto;
+    left: 15px;
+    width: calc(100% - 30px);
+    margin-top: 0;
+    padding: 22px;
+  }
+
+  .contact-form h1 {
+    font-size: 21px;
+    white-space: normal;
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button {
+    width: 100%;
+  }
+
+  #quote {
+    height: auto;
+    padding: 18px 0;
+    text-align: center;
+  }
+
+  .left-text {
+    padding: 0 15px;
+  }
+
+  .right-button a {
+    margin: 15px auto 0;
+	}
+  #about {
+    margin-top: 35px;
+  }
+
+  .about-img {
+    width: 100%;
+    margin: 0;
+  }
+
+  .about-content {
+    padding-left: 0;
+    padding-top: 25px;
+  }
+
+  .circle-icon > div {
+    width: 50%;
+    flex: 0 0 50%;
+    margin-bottom: 20px;
+  }
+
+  #service h1 + img,
+  #project h1 + img,
+  #testimonials h1 + img,
+  #experts h1 + img,
+  #contact h1 + img {
+    display: block;
+    max-width: 160px;
+    height: auto;
+    margin: 12px auto !important;
+  }
+
+  #service {
+    height: auto;
+    padding-bottom: 45px;
+    margin-top: 35px;
+  }
+
+  .service-heading {
+    padding-top: 45px;
+  }
+
+  .service-carousel {
+    margin: 45px 0 0;
+  }
+
+  .service-image {
+    height: 220px;
+  }
+
+  .service-info {
+    min-height: 0;
+  }
+
+  /* Projects */
+  #project {
+    height: auto;
+    padding-bottom: 35px;
+    margin-top: 35px;
+  }
+
+  .project-img {
+    margin-top: 0;
+  }
+
+  .project-card {
+    margin-bottom: 18px;
+  }
+
+  .project-card img {
+    width: 100%;
+    height: auto !important;
+    margin-left: 0 !important;
+  }
+
+  .project-text h3 {
+    font-size: 29px;
+  }
+
+  .project-text p {
+    font-size: 18px;
+  }
+
+  /* Testimonials */
+  #testimonials {
+    height: auto;
+    padding: 35px 0 45px;
+    margin-top: 35px;
+  }
+
+  .testimonial-heading {
+    margin-top: 0;
+  }
+
+  .testimonial-card1,
+  .testimonial-card2,
+  .testimonial-card3 {
+    margin: 0 0 45px;
+  }
+
+  .testimonial-message {
+    width: 100%;
+    min-height: 0;
+    padding: 45px 25px 30px 55px;
+  }
+
+  .testimonial-person {
+    margin-top: 40px;
+  }
+
+  .testimonial-person img {
+    margin-left: 25px;
+  }
+
+  #experts {
+    height: auto;
+    padding-bottom: 40px;
+    margin-top: 35px;
+  }
+
+  .team-card {
+    margin-bottom: 25px;
+  }
+
+  .team-photo {
+    height: 360px;
+  }
+
+  .team-card:hover .team-photo {
+    height: 300px;
+  }
+
+
+  #contact {
+    height: auto;
+    padding-bottom: 45px;
+    margin-top: 35px;
+  }
+
+  .contact-heading {
+    padding-top: 40px;
+  }
+
+  .contact-content {
+    margin-left: 0;
+  }
+
+  .contact-content h3 {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  .form-row input,
+  .contact-form-right textarea,
+  .contact-form-right button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .contact-form-right textarea {
+    height: 130px;
+    margin-bottom: 20px;
+  }
+
+  #footer {
+    height: auto;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+    margin-top: 15px;
+    gap: 8px;
+  }
+
+  .footer-social a {
+    width: 35px;
+    height: 35px;
+  }
+}
+</style>
+</head>
+
+<body>
+<section id="header">
+	<div class="container">
+	<div class="row">
+	 <div class="col-lg-3">
+	<img src="DB LOGO.png" alt="logo" width="250px" style="margin-top:8px;">
+		</div>
+		<div class="col col-9">
+			<ul>
+	 <li><a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#home" target="_blank">HOME</a></li>
+	 <li><a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#about" target="_blank">ABOUT US</a></li>
+	 <li><a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#service" target="_blank">SERVICE</a></li>
+	 <li><a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#porfolio" target="_blank">PORFOLIO</a></li>	
+	 <li><a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#testimonials" target="_blank">TESTIMONIALS</a></li>
+	 <li><a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#team" target="_blank">TEAM</a></li>
+	 <li><a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#contact" target="_blank">CONTACT US</a></li>	
+				</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="hero-section">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div class="hero-sliders">
+  <img class="mySlides" src="DB Hero-img-1.png" alt="image">
+  <img class="mySlides" src="DB Hero IMG-2.png" alt="image">
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-6">
+<div class="hero-text">
+ <h1>Build Your <span style="color:#fdc236;">Home</span></h1>
+  <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Mauris dapibus ex sed eros molestie blandit. Fusce sem enim,
+        commodo sit amet diam pharetra, aliquet pulvinar purus.
+    </p>
+<button class="hero-button">CONTACT US</button>
+</div>
+</div>
+<div class="contact-form">
+<div class="col-lg-6">	
+<h1>FREE CONSULTATION</h1>
+  <form>
+<input type="text" placeholder="Name *">
+<input type="email" placeholder="Email *">
+<input type="tel" placeholder="Phone *">
+<textarea placeholder="Tell us what happened *"></textarea>
+<button type="submit">CONTACT US</button>
+</form>
+</div>
+</div>
+</div>
+</div>	
+</section>
+<section id="quote">
+<div class="container">
+<div class="row">
+<div class="col-lg-9 left-text">
+<h4>Looking for a quality constructor for your next project?</h4>
+</div>
+<div class="col-lg-3 right-button">
+<a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" target="_blank">GET A QUOTE</a>
+</div>
+</div>
+</div>
+</section>
+<section id="about">
+<div class="container">
+<div class="row">
+<div class="col-lg-6">
+<img src="DB About-img.png" alt="about-image" class="about-img">
+</div>
+<div class="col-lg-6 about-content">
+<h1 class="about-heading">About <span style="color:#fdc236;">Our Company</span></h1>
+<img src="DB Horizontal line.png" alt="horizontal line" class="hr-line">
+<h4 style="font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; font-weight:bold; padding-top:10px;">Lorem ipsum dolor sit amet, consectetur</h4>
+<p style="font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color:#878787; font-size:15px; padding-top:10px; padding-right:20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non libero consectetur, blandit mauris eget, imperdiet nisl. Etiam commodo ex nec erat tempor varius. Nunc rutrum pretium nunc in malesuada. Curabitur mollis urna ac sapien vulputate, ut congue sapien vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam et suscipit dui. Maecenas velit quam, mollis id erat eget, scelerisque elementum odio. Maecenas ac sagittis erat. Quisque hendrerit dapibus diam, a venenatis dui efficitur nec. Aenean tincidunt ullamcorper fermentum.</p>
+<div class="row circle-icon">
+<div class="col-lg-3">
+<a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" target="_blank" class="circle-1"><img src="DB Icon-1.png" alt="home"></a>
+<h5 style="font-family:'Roboto Condensed', sans-serif; padding-top:12px;">Commercial</h5>
+</div>
+<div class="col-lg-3">
+<a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" target="_blank" class="circle-1"><img src="DB Icon-2.png" alt="home"></a>
+<h5 style="font-family:'Roboto Condensed', sans-serif; padding-top:12px; pading-left:12px;">Residential</h5>
+</div>
+<div class="col-lg-3">
+<a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" target="_blank" class="circle-1"><img src="DB Icon-3.png" alt="home" style="width:40px;"></a>
+<h5 style="font-family:'Roboto Condensed', sans-serif;  padding-top:12px; padding-left:8px;">Industrial
+</h5>
+</div>
+<div class="col-lg-3">
+<a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" target="_blank" class="circle-1"><img src="DB Icon-4.png" alt="home" style="width:60px;"></a>
+<h5 style="font-family:'Roboto Condensed', sans-serif; padding-top:12px;  transform: translate(-12%);">Reconstruction</h5>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="service">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<h1 class="service-heading">OUR <span style="color:#fdc236;">SERVICE</span></h1>
+<img src="DB service hr-line.png" alt="service horizontal-line" style="margin-left:510px;">
+</div>
+</div>
+</div>
+<div class="container">
+  <div class="row flex-nowrap gx-0 service-track">
+<div class="col-lg-4 service-slide">
+  <article class="service-card">
+
+    <div class="service-image">
+      <img src="DB Service card-1.png" alt="Interior Design">
+
+      <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" class="image-link" aria-label="View Interior Design">
+        <i class="fa-solid fa-link"></i>
+      </a>
+    </div>
+
+    <div class="service-info">
+      <h3>Interior Design</h3>
+
+      <p>
+        Modern and elegant interior design solutions for your home.
+      </p>
+
+      <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" class="read-more">READ MORE</a>
+    </div>
+
+  </article>
+</div>
+<div class="col-lg-4 service-slide">
+  <article class="service-card">
+
+    <div class="service-image">
+      <img src="DB Service card-2.png" alt="Interior Design">
+
+      <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" class="image-link" aria-label="View Interior Design">
+        <i class="fa-solid fa-link"></i>
+      </a>
+    </div>
+
+    <div class="service-info">
+      <h3>Interior Design</h3>
+
+      <p>
+        Modern and elegant interior design solutions for your home.
+      </p>
+      <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" class="read-more">READ MORE</a>
+    </div>
+
+  </article>
+</div>
+<div class="col-lg-4 service-slide">
+  <article class="service-card">
+
+    <div class="service-image">
+      <img src="DB Service card-3.png" alt="Interior Design">
+
+      <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" class="image-link" aria-label="View Interior Design">
+        <i class="fa-solid fa-link"></i>
+      </a>
+    </div>
+<div class="service-info">
+      <h3>Interior Design</h3>
+      <p>
+        Modern and elegant interior design solutions for your home.
+      </p>
+      <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" class="read-more">READ MORE</a>
+    </div>
+
+  </article>
+</div>
+<div class="col-lg-4 service-slide">
+  <article class="service-card">
+    <div class="service-image">
+      <img src="DB Service card-4.png" alt="Interior Design">
+  <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" class="image-link" aria-label="View Interior Design">
+        <i class="fa-solid fa-link"></i>
+      </a>
+	  </div>
+    <div class="service-info">
+      <h3>Interior Design</h3>
+   <p>
+        Modern and elegant interior design solutions for your home.
+      </p>
+
+      <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" class="read-more">READ MORE</a>
+    </div>
+
+  </article>
+</div>
+<div class="col-lg-4 service-slide">
+  <article class="service-card">
+    <div class="service-image">
+      <img src="DB Service card-5.png" alt="Painting service">
+      <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" class="image-link">
+        <i class="fa-solid fa-link"></i>
+      </a>
+    </div>
+
+    <div class="service-info">
+      <h3>Painting</h3>
+      <p>Professional painting services for modern and beautiful spaces.</p>
+      <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" class="read-more">READ MORE</a>
+    </div>
+  </article>
+</div>
+<div class="col-lg-4 service-slide">
+  <article class="service-card">
+    <div class="service-image">
+      <img src="DB Service card-6.png" alt="Painting service">
+      <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" class="image-link">
+        <i class="fa-solid fa-link"></i>
+      </a>
+    </div>
+ <div class="service-info">
+      <h3>Painting</h3>
+      <p>Professional painting services for modern and beautiful spaces.</p>
+      <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#" class="read-more">READ MORE</a>
+    </div>
+  </article>
+</div>
+</div>
+</div>
+</section>
+<section id="project">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<h1 class="project-heading">LATEST <span style="color:#fdc236;">PROJECT</span></h1>
+<img src="DB Horizontal line.png" alt="service horizontal-line" style="margin-left:510px;">
+</div>
+</div>
+<div class="row project-img">
+<div class="col-lg-4">
+<div class="project-card">
+<img src="DB project img-1.png" alt="project-image" class="project-img1" width="360px" height="296px">
+<div class="project-overlay">
+      <div class="project-text">
+        <h3>Interior Design</h3>
+        <p>Builder, Repairman</p>
+      </div>
+    </div>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="project-card">
+<img src="DB project img-2.png" alt="project-image" class="project-img2" width="360px" height="296px">
+<div class="project-overlay">
+      <div class="project-text">
+        <h3>HOME</h3>
+        <p>Builder, Repairman</p>
+      </div>
+    </div>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="project-card">
+<img src="DB project img-3.png" alt="project-image" width="360px" height="296px">
+<div class="project-overlay">
+      <div class="project-text">
+        <h3>Interior Design</h3>
+        <p>Builder, Repairman</p>
+      </div>
+    </div>
+</div>
+</div>
+</div>
+<div class="row project-img">
+<div class="col-lg-3">
+<div class="project-card">
+<img src="DB project img-4.png" alt="project-image" class="project-img1" width="262px" height="216px">
+<div class="project-overlay">
+      <div class="project-text">
+        <h3>HOME</h3>
+        <p>Builder, Repairman</p>
+      </div>
+    </div>
+</div>
+</div>
+<div class="col-lg-3">
+<div class="project-card">
+<img src="DB project img-5.png" alt="project-image" class="project-img3" width="262px" height="216px">
+<div class="project-overlay">
+      <div class="project-text">
+        <h3>HOME</h3>
+        <p>Builder, Repairman</p>
+      </div>
+    </div>
+</div>
+</div>
+<div class="col-lg-3">
+<div class="project-card">
+<img src="DB project img-6.png" alt="project-image" class="project-img4" width="262px" height="216px">
+<div class="project-overlay">
+      <div class="project-text">
+        <h3>HOME</h3>
+        <p>Builder, Repairman</p>
+      </div>
+    </div>
+</div>
+</div>
+<div class="col-lg-3">
+<div class="project-card">
+<img src="DB project img-7.png" alt="project-image" width="262px" height="216px">
+<div class="project-overlay">
+      <div class="project-text">
+        <h3>HOME</h3>
+        <p>Builder, Repairman</p>
+      </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="testimonials">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<h1 class="testimonial-heading">TESTIMONIALS</h1>
+<img src="DB testimonials hr.png" alt="service horizontal-line" style="margin-left:510px;">
+</div>
+</div>
+<div class="row g-5">
+      <div class="col-lg-4">
+        <div class="testimonial-card1">
+        <div class="testimonial-message">
+            <i class="fa-solid fa-quote-left quote-icon"></i>
+           <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Duis quis augue ultricies, molestie nisl mollis, efficitur
+              velit. Nunc urna ligula, malesuada nec condimentum eu,
+              tincidunt sit amet purus.
+            </p>
+          </div>
+          <div class="testimonial-person">
+            <img src="DB client2.jpg" alt="John Doe">
+            <div>
+              <h3>JOHN DOE</h3>
+              <p>Lorem Ipsum</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="testimonial-card2">
+          <div class="testimonial-message">
+            <i class="fa-solid fa-quote-left quote-icon"></i>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Duis quis augue ultricies, molestie nisl mollis, efficitur
+              velit. Nunc urna ligula, malesuada nec condimentum eu,
+              tincidunt sit amet purus.
+            </p>
+          </div>
+          <div class="testimonial-person">
+            <img src="DB client.jpg" alt="John Doe">
+           <div>
+              <h3>JOHN DOE</h3>
+              <p>Lorem Ipsum</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="testimonial-card3">
+          <div class="testimonial-message">
+            <i class="fa-solid fa-quote-left quote-icon"></i>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Duis quis augue ultricies, molestie nisl mollis, efficitur
+              velit. Nunc urna ligula, malesuada nec condimentum eu,
+              tincidunt sit amet purus.
+            </p>
+          </div>
+          <div class="testimonial-person">
+            <img src="DB client2.jpg" alt="John Doe">
+            <div>
+              <h3>JOHN DOE</h3>
+              <p>Lorem Ipsum</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="experts">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<h1 class="expert-heading">OUR <span style="color:#fdc236;">EXPERTS</span></h1>
+<img src="DB Horizontal line.png" alt="service horizontal-line" style="margin-left:510px;">
+<p class="expert-paragraph">Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet, conse<br>ctetuer adipis elit, aliquam eget nibh etlibura.</p>
+</div>
+</div>
+</div>
+<div class="container">
+  <div class="row g-4">
+    <div class="col-lg-3">
+      <div class="team-card">
+        <div class="team-info">
+          <h3>WILLIMES DONO</h3>
+          <p>Supervisor</p>
+        </div>
+        <div class="team-photo">
+          <img src="DB expert team01.png" alt="Willimes Dono">
+        </div>
+        <div class="team-social">
+          <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#"><i class="fa-brands fa-google-plus-g"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="team-card">
+        <div class="team-info">
+          <h3>JAMES ROCKY</h3>
+          <p>Supervisor</p>
+        </div>
+        <div class="team-photo">
+          <img src="DB expert team02.png" alt="James Rocky">
+        </div>
+        <div class="team-social">
+          <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#"><i class="fa-brands fa-google-plus-g"></i></a>
+        </div>
+      </div>
+    </div>
+	 <div class="col-lg-3">
+      <div class="team-card">
+        <div class="team-info">
+          <h3>JOHN SMITH</h3>
+          <p>Supervisor</p>
+        </div>
+        <div class="team-photo">
+          <img src="DB expert team03.png" alt="JOHN SMITH">
+        </div>
+        <div class="team-social">
+          <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#"><i class="fa-brands fa-google-plus-g"></i></a>
+        </div>
+      </div>
+    </div>
+	  <div class="col-lg-3">
+      <div class="team-card">
+        <div class="team-info">
+          <h3>DAVID NICHOLSON</h3>
+          <p>Supervisor</p>
+        </div>
+        <div class="team-photo">
+          <img src="DB expert team04.png" alt="DAVID NICHOLSON">
+        </div>
+        <div class="team-social">
+          <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://themes.adnanshoukat.com/designsbridge/build-construct/html/index3.html#"><i class="fa-brands fa-google-plus-g"></i></a>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+</section>
+<section id="contact">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<h1 class="contact-heading">CONTACT <span style="color:#fdc236;">US</span></h1>
+<img src="DB service hr-line.png" alt="contact horizontal-line" style="margin-left:510px;">
+</div>
+</div>
+<div class="row contact-content">
+<div class="col-lg-6">
+<h3>Call Us Today!<br>
+<span style="color:#ffc238; font-family:Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', 'serif'; font-size:28px;">(777) 123 4567</span> Call Us 24 Hours / 7 Days
+</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla turpis non leo dapibus, sit amet semper tellus euismod. Pellentesque posuere sed ante ut condimentum. Nulla facilisi. Fusce tristique efficitur nunc at sagittis. Aenean fringilla mi in scelerisque ultrices. Quisque venenatis porta dui, quis pharetra elit mollis vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at augue hendrerit, finibus orci ut, commodo enim.</p>
+</div>
+<div class="col-lg-6">
+<form class="contact-form-right">
+    <div class="form-row">
+      <input type="text" placeholder="First Name">
+      <input type="text" placeholder="Last Name">
+    </div>
+    <div class="form-row">
+      <input type="tel" placeholder="Phone No">
+      <input type="email" placeholder="Email">
+    </div>
+    <textarea placeholder="Message"></textarea>
+    <button type="submit">CONTACT US NOW</button>
+  </form>
+</div>
+</div>
+</div>
+</section>
+<section id="footer">
+<div class="container">
+<div class="row footer-content">
+<div class="col-lg-6">
+<p>©Copyright 2017 company name. All Rights Reserved</p>
+</div>
+<div class="col-lg-6">
+<div class="footer-social">
+  <a href="#" class="facebook">
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+  <a href="#" class="twitter">
+    <i class="fa-brands fa-twitter"></i>
+  </a>
+  <a href="#" class="youtube">
+    <i class="fa-brands fa-youtube"></i>
+  </a>
+  <a href="#" class="linkedin">
+    <i class="fa-brands fa-linkedin-in"></i>
+  </a>
+  <a href="#" class="google">
+    <i class="fa-brands fa-google-plus-g"></i>
+  </a>
+  <a href="#header" class="back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </a>
+</div>
+</div>
+</div>
+</div>
+</section>		
+<script>
+
+var myIndex = 0;
+
+var heading = document.querySelector(".hero-text h1");
+var paragraph = document.querySelector(".hero-text p");
+var button = document.querySelector(".hero-button");
+
+carousel();
+
+function carousel() {
+
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+
+   
+    myIndex++;
+
+    if (myIndex > x.length) {
+        myIndex = 1;
+    }
+
+    x[myIndex - 1].style.display = "block";
+
+    if (myIndex == 1) {
+
+        heading.innerHTML = 'Build Your <span style="color:#fdc236;">Home</span>';
+
+        paragraph.innerHTML =
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dapibus ex sed eros molestie blandit. Fusce sem enim, commodo sit amet diam pharetra, aliquet pulvinar purus.';
+
+        button.innerHTML = 'CONTACT US';
+    }
+
+    if (myIndex == 2) {
+
+        heading.innerHTML = 'BEST HOUSE <span style="color:#fdc236;">RENOVATION</span>';
+
+        paragraph.innerHTML =
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dapibus ex sed eros molestie blandit. Fusce sem enim, commodo sit amet diam pharetra, aliquet pulvinar purus.';
+
+        button.innerHTML = 'CONTACT US';
+    }
+
+    heading.classList.remove("animate");
+    paragraph.classList.remove("animate");
+    button.classList.remove("animate");
+
+    void heading.offsetWidth;
+    void paragraph.offsetWidth;
+    void button.offsetWidth;
+
+    heading.classList.add("animate");
+
+    setTimeout(function() {
+        paragraph.classList.add("animate");
+    }, 1200);
+
+    setTimeout(function() {
+        button.classList.add("animate");
+    }, 2400);
+
+    setTimeout(carousel, 5000);
+
+}
+
+</script>
+<script>
+  const serviceTrack = document.querySelector(".service-track");
+  const originalSlides = [
+    ...document.querySelectorAll(".service-slide")
+  ];
+  originalSlides.slice(0, 3).forEach(function (slide) {
+    serviceTrack.appendChild(slide.cloneNode(true));
+  });
+
+  let serviceIndex = 0;
+
+  function moveServiceCards() {
+    const slideWidth = originalSlides[0].offsetWidth;
+
+    serviceIndex++;
+
+    serviceTrack.style.transform =
+      "translateX(-" + (serviceIndex * slideWidth) + "px)";
+    if (serviceIndex === originalSlides.length) {
+      setTimeout(function () {
+        serviceTrack.style.transition = "none";
+        serviceTrack.style.transform = "translateX(0)";
+        serviceIndex = 0;
+
+        setTimeout(function () {
+          serviceTrack.style.transition = "transform 0.65s ease";
+        }, 50);
+      }, 650);
+    }
+  }
+
+  setInterval(moveServiceCards, 7000);
+</script>
+<script>
+  document.querySelector(".back-to-top").addEventListener("click", function (event) {
+    event.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+</body>
+</html>
